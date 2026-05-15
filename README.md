@@ -1,6 +1,6 @@
 # Installing and running VERSA
 
-To get our acoustic/audio quality metrics, I decided to use VERSA.
+To get our acoustic/audio quality metrics, I decided to use [VERSA](https://aclanthology.org/2025.naacl-demo.19.pdf).
 
 https://github.com/wavlab-speech/versa/tree/main
 
