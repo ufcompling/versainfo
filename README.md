@@ -49,7 +49,18 @@ python -c "from versa.bin.scorer import main; print('ok')"
 ```
 
 You can look at the requirements I had when it worked for me in the `versa_pinned_requirements.txt` file, but everything should get installed properly, I think.
-t
+
+Additional notes:
+
+```
+pip install -r versa_pinned_requirements.txt
+pip install git+https://github.com/vBaiCai/python-pesq.git --break-system-packages
+pip3 install git+https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics.git
+pip install pseq
+```
+
+Then check output from each of the python command above to see what else needs to be installed; WARNINGs can be ignored because we might not need to use those metrics
+
 7. I had to set a lot of environment variables, and I needed a ton of help with that from Claude. You can find them all is `versa_env.sh`. You might not need to do this yourself, but I guess it can't hurt.
 
 8. I had to apply some patches. It's possible you won't, bu if you get a lot of errors about soundfile backend and sox backend, you will need these patches. You'll see these two scripts in this repo. You can just run them as python scripts (make sure any hardcoded paths are updated for you), and I think they will do the job.
@@ -58,6 +69,8 @@ t
 apply_patches.py
 apply_other_patch.py
 ```
+
+Additional notes: so far we did not need these patches.
 
 9. Add your Hugging Face token to your profile on your cluster, which should make a lot of downloads faster. I can never remember how to do this, so I always just look it up on the web.
 
