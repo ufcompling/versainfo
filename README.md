@@ -70,9 +70,11 @@ apply_patches.py
 apply_other_patch.py
 ```
 
-Additional notes: so far we did not need these patches.
+Additional notes: We applied these patches.
 
 9. Add your Hugging Face token to your profile on your cluster, which should make a lot of downloads faster. I can never remember how to do this, so I always just look it up on the web.
+
+Additional notes: Didn't need to do this yet.
 
 ## Part 2: Test run
 Do a test run with a non-neural scorer and a neural scorer:
@@ -97,6 +99,8 @@ mini_run.sh
 4. Edit `mini_run.sh` to make all the paths correct (e.g., to point at your csv file). You can see that I was trying it with some enenlhet data.
 5. Make it executable and run it.
 6. Hang out because you might have to say "y" to a lot of questions about downloading stuff.
+
+Additional notes: check the output stderr file in the output folder to see if there are any errors, which could point to things that need to be installed.
 
 ## Part 4: Real run
 Using `real_run.sh` as a guide, submit a full run as a job to your cluster with the full csv as an argument to `run_versa_quality.py`. Obviously you will need to update all your SBATCH lines to work with your cluster. It is important to give it plenty of CPUs. 
