@@ -18,7 +18,7 @@ conda activate versa
 
 2. Install a CUDA-matched PyTorch, **before** installing versa itself. You can find out your CUDA version with the `nvidia-smi` command. Here's how I installed it with CUDA 12.9 (see the 129 at the end of the URL), which is what we have on our cluster:
 
-``pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu129``
+``pip install torch torchaudio torchvision --index-url https://download.pytorch.org/whl/cu129``
 
 3. Next install VERSA itself
 
@@ -84,6 +84,17 @@ mini_run.sh
 4. Edit `mini_run.sh` to make all the paths correct (e.g., to point at your csv file). You can see that I was trying it with some enenlhet data.
 5. Make it executable and run it.
 6. Hang out because you might have to say "y" to a lot of questions about downloading stuff.
+
+Additional Notes: did more pip install; look at the output file versa_stderr.log (in the output folder specified in `mini_run.sh`)
+
+```
+pip install speechmos onnxruntime
+pip install s3prl
+bash versa/tools/setup_nisqa.sh
+bash versa/tools/install_vqscore.sh
+```
+
+Also modified the `tmpdir` in `versa/tools/setup_nisqa.sh`
 
 ## Part 4: Real run
 Using `real_run.sh` as a guide, submit a full run as a job to your cluster with the full csv as an argument to `run_versa_quality.py`. Obviously you will need to update all your SBATCH lines to work with your cluster. It is important to give it plenty of CPUs. 
